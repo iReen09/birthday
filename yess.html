@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My love</title>
+    <style>
+      h1,
+      p {
+        font-family: "Hind", sans-serif;
+      }
+
+      p {
+        text-indent: 50px;
+      }
+
+      h1 {
+        font-weight: 200;
+      }
+
+      body {
+        margin: 0px;
+      }
+
+      .container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      #playButton {
+        display: none; /* Hide the button initially */
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        background: #4285f4;
+        color: #fff;
+        width: 240px;
+        height: 50px;
+        border-radius: 5px;
+        border: thin solid #888;
+        box-shadow: 1px 1px 1px grey;
+        white-space: nowrap;
+        font-size: 16px;
+        font-weight: normal;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .heart {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        transition: transform 2s; /* corrected */
+        z-index: 1;
+      }
+
+      .heart > img {
+        width: 50px;
+        height: auto;
+      }
+
+      .message {
+        padding: 20px;
+        background-color: #eee;
+        min-width: 400px;
+        height: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        overflow: hidden;
+        animation-name: openmsg;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+        animation-play-state: paused;
+        animation-fill-mode: forwards;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+          0 6px 6px rgba(0, 0, 0, 0.23);
+        border-radius: 5px;
+      }
+
+      .heart > img:hover {
+        animation-name: beat;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-play-state: running;
+      }
+
+      @keyframes beat {
+        0% {
+          width: 50px;
+        }
+        25% {
+          width: 58px;
+        }
+        30% {
+          width: 50px;
+        }
+        50% {
+          width: 45px;
+        }
+        60% {
+          width: 50px;
+        }
+        75% {
+          width: 58px;
+        }
+        100% {
+          width: 50px;
+        }
+      }
+
+      @keyframes openmsg {
+        0% {
+          height: 0px;
+          padding: 0px 20px;
+        }
+        100% {
+          height: 75%;
+          padding: 20px 20px;
+        }
+      }
+
+      @keyframes heartMove {
+        0% {
+          top: 50%;
+        }
+        100% {
+          top: 85%;
+          transform: translate(-50%, 0);
+        }
+      }
+
+      .openNor {
+        animation-direction: normal;
+        animation-play-state: running;
+      }
+
+      .closeNor {
+        animation-direction: reverse;
+        animation-play-state: running;
+      }
+
+      .no-anim {
+        animation: none;
+      }
+
+      .closed {
+        height: 0px;
+        padding: 0px 20px;
+      }
+
+      .bottom {
+        bottom: 5px;
+      }
+
+      .openHer {
+        animation-name: heartMove;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+        animation-play-state: running;
+        animation-fill-mode: forwards;
+      }
+
+      .closeHer {
+        animation-name: heartMove;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+        animation-play-state: running;
+        animation-direction: reverse;
+        animation-fill-mode: forwards;
+      }
+
+      .beating > img {
+        animation-name: beat;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-play-state: running;
+      }
+
+      .openedHer {
+        top: 85%;
+        transform: translate(-50%, 0);
+      }
+
+      .heart-below {
+        top: 85%;
+        transform: translate(-50%, 0);
+      }
+
+      #video {
+        display: none;
+        width: 100%; /* Set video width to 100% of its container */
+        max-height: calc(
+          100% - 130px
+        ); /* Adjusted height to leave space for button and message */
+        margin-top: 20px; /* Margin top to create space between message and video */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <label>
+        <div class="heart">
+          <img
+            src="https://raw.githubusercontent.com/DzarelDeveloper/Img/main/Lope.png"
+          />
+        </div>
+        <input id="messageState" type="checkbox" style="display: none" />
+      </label>
+      <div class="message">
+        <h1>Happy Birthday Sayang</h1>
+        <p>
+          Dear Yesika Widiyani cayangku cintaku cantikku manisku dino kecilku my
+          little eepy kitty yang paling lucu dan menggemaskan❤️,
+
+          <br /><br />Barakallah Fii Umrik yaa, berkah hidupnya, sehat selalu,
+          JANGAN SAKIT-SAKIT!! MAKAN YG BENER!😡 semoga apa yang disemogakan
+          tersemogakan, jadi yesika yang lebih kuat, lebih bisa mengungkapkan
+          perasaanya, kurang"in mendem masalahnya sendiri, dan semoga kedepannya
+          kamu selalu dikelilingi dengan hal-hal yang baik, entah dalam bentuk
+          teman, perbuatan, dll. jangan lupa buat berterimakasih sama diri
+          sendiri udah sampe sejauh ini, ngehadapin masalah-masalah dari yang
+          kecil sampai yang gabisa dijelasin dengan kata-kata, jangan pernah
+          nyerah ngelakuin hal-hal baik, jangan pernah cape berusaha buat jadi
+          lebih baik lagi, dan jadi yesika yang lebih kuat dari sebelumnya okey?
+          kamu pasti bisa! Semangat!!
+
+          <br /><br />I want to tell you many things, about how much I love you
+          and fear losing you, tapi aku gatau cara ngungkapinnya, walaupun
+          banyak perlakuanku yang bikin kesel, emosi, marah, seneng, atau bikin
+          kamu ngerasa sendiri, ngerasa ga dihargain, dan masi banyak lagi. But
+          I hope you know, I try my best for you. Makasih juga udah mau nerima
+          aku, ngasih kesempatan buatku jadi orang baru di hidupmu, aku minta
+          maaf untuk hal-hal dan perlakuan yang mungkin berbeda sama apa yang
+          kamu bayangin, makasih udah mau tetep bertahan disini samaku. Maaf aku
+          masi kurang kompeten jadi seorang laki-laki dalam sebuah hubungan,
+          gatau hubungan kaya gimana yang kamu mau, yang kamu suka, tujuannya
+          gimana, cara ngejalaninnya, maaf juga datang aku datang terlalu cepat
+          dimana kamu masi bimbang dan bahkan mengambil resiko buat nerima aku,
+          semoga ada hal-hal positif yang bisa kamu ambil, entah gimanapun
+          endingnya nanti, aku selalu bersyukur pernah ketemu kamu, kenal kamu,
+          ngejalin hubungan sama kamu, berantem sama kamu, dan masi banyak lagi.
+          Semoga kamu bahagia dengan siapapun pilihanmu. Aku bersyukur dan
+          berterimakasih atas hal-hal yang udah kita lewatin sampe sini. Semoga
+          kamu lebih bahagia kedepannya, Thank you for being a part of my life🫶
+
+          <br /><br />That's all from me for my beloved, i love you🫂
+          <br /><br />With all my love, <br />
+          Rendi
+        </p>
+      </div>
+      <button id="playButton">Play</button>
+      <video id="video" controls>
+        <source src="yes.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- javascript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $("#messageState").on("change", (x) => {
+        $(".message").removeClass("openNor").removeClass("closeNor");
+        if ($("#messageState").is(":checked")) {
+          $(".message")
+            .removeClass("closed")
+            .removeClass("no-anim")
+            .addClass("openNor");
+          $(".heart")
+            .removeClass("closeHer")
+            .removeClass("openedHer")
+            .addClass("openHer");
+          $(".container").stop().animate({ backgroundColor: "#f48fb1" }, 2000);
+          $("#playButton").show(); // Show the play button
+          console.log("I Like You");
+        } else {
+          $(".message").removeClass("no-anim").addClass("closeNor");
+          $(".heart")
+            .removeClass("openHer")
+            .removeClass("openedHer")
+            .addClass("closeHer");
+          $(".container").stop().animate({ backgroundColor: "#fce4ec" }, 2000);
+          $("#playButton").hide(); // Hide the play button
+          console.log("01010");
+        }
+      });
+
+      $(".message").on(
+        "webkitAnimationEnd oanimationend msAnimationEnd animationend",
+        function (e) {
+          console.log("I Like You");
+          if ($(".message").hasClass("closeNor"))
+            $(".message").addClass("closed");
+          $(".message")
+            .removeClass("openNor")
+            .removeClass("closeNor")
+            .addClass("no-anim");
+        }
+      );
+
+      $(".heart").on(
+        "webkitAnimationEnd oanimationend msAnimationEnd animationend",
+        function (e) {
+          console.log("I Like You");
+          if (!$(".heart").hasClass("closeHer"))
+            $(".heart").addClass("openedHer").addClass("beating");
+          else $(".heart").addClass("no-anim").removeClass("beating");
+          $(".heart").removeClass("openHer").removeClass("closeHer");
+        }
+      );
+
+      var video = document.getElementById("video");
+      var playButton = document.getElementById("playButton");
+
+      playButton.addEventListener("click", function () {
+        video.style.display = "block";
+        video.play();
+        $(".heart").addClass("heart-below");
+        $("#messageState").prop("checked", false).trigger("change"); // Menutup pesan
+      });
+    </script>
+  </body>
+</html>
