@@ -30,13 +30,13 @@
       #playButton {
         display: none; /* Hide the button initially */
         position: absolute;
-        bottom: 20px;
+        top: 10%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         z-index: 2;
         background: #4285f4;
         color: #fff;
-        width: 240px;
+        width: 200px;
         height: 50px;
         border-radius: 5px;
         border: thin solid #888;
@@ -72,7 +72,7 @@
         top: 50%;
         transform: translate(-50%, -50%);
         z-index: 0;
-        overflow: hidden;
+        overflow-y: auto; /* Add scroll for overflow */
         animation-name: openmsg;
         animation-duration: 2s;
         animation-timing-function: linear;
@@ -202,20 +202,26 @@
         ); /* Adjusted height to leave space for button and message */
         margin-top: 20px; /* Margin top to create space between message and video */
       }
+
+      footer {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Hind", sans-serif;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <label>
         <div class="heart">
-          <img
-            src="https://raw.githubusercontent.com/DzarelDeveloper/Img/main/Lope.png"
-          />
+          <img src="https://github.com/iReen09/birthday/raw/main/lope.png" />
         </div>
         <input id="messageState" type="checkbox" style="display: none" />
       </label>
       <div class="message">
-        <h1>Happy Birthday Sayang</h1>
+        <h2>Happy Birthday Sayang</h2>
         <p>
           Dear Yesika Widiyani cayangku cintaku cantikku manisku dino kecilku my
           little eepy kitty yang paling lucu dan menggemaskan❤️,
@@ -225,12 +231,12 @@
           tersemogakan, jadi yesika yang lebih kuat, lebih bisa mengungkapkan
           perasaanya, kurang"in mendem masalahnya sendiri, dan semoga kedepannya
           kamu selalu dikelilingi dengan hal-hal yang baik, entah dalam bentuk
-          teman, perbuatan, dll. jangan lupa buat berterimakasih sama diri
-          sendiri udah sampe sejauh ini, ngehadapin masalah-masalah dari yang
-          kecil sampai yang gabisa dijelasin dengan kata-kata, jangan pernah
-          nyerah ngelakuin hal-hal baik, jangan pernah cape berusaha buat jadi
-          lebih baik lagi, dan jadi yesika yang lebih kuat dari sebelumnya okey?
-          kamu pasti bisa! Semangat!!
+          teman, perbuatan, perlakuan, dll. jangan lupa buat berterimakasih sama
+          diri sendiri udah sampe sejauh ini, ngehadapin masalah-masalah dari
+          yang kecil sampai yang gabisa dijelasin dengan kata-kata, jangan
+          pernah nyerah ngelakuin hal-hal baik, jangan pernah cape berusaha buat
+          jadi lebih baik lagi, dan jadi yesika yang lebih kuat dari sebelumnya
+          okey? kamu pasti bisa! Semangat!!
 
           <br /><br />I want to tell you many things, about how much I love you
           and fear losing you, tapi aku gatau cara ngungkapinnya, walaupun
@@ -242,26 +248,31 @@
           kamu bayangin, makasih udah mau tetep bertahan disini samaku. Maaf aku
           masi kurang kompeten jadi seorang laki-laki dalam sebuah hubungan,
           gatau hubungan kaya gimana yang kamu mau, yang kamu suka, tujuannya
-          gimana, cara ngejalaninnya, maaf juga aku datang terlalu cepat
-          dimana kamu masi bimbang dan bahkan mengambil resiko buat nerima aku,
-          semoga ada hal-hal positif yang bisa kamu ambil, entah gimanapun
-          endingnya nanti, aku selalu bersyukur pernah ketemu kamu, kenal kamu,
-          ngejalin hubungan sama kamu, berantem sama kamu, dan masi banyak lagi.
-          Semoga kamu bahagia dengan siapapun pilihanmu. Aku bersyukur dan
-          berterimakasih atas hal-hal yang udah kita lewatin sampe sini. Semoga
-          kamu lebih bahagia kedepannya, Thank you for being a part of my life🫶
+          gimana, cara ngejalaninnya, maaf juga aku datang terlalu cepat dimana
+          kamu masi bimbang dan bahkan mengambil resiko buat nerima aku, semoga
+          ada hal-hal positif yang bisa kamu ambil, entah gimanapun endingnya
+          nanti, aku selalu bersyukur pernah ketemu kamu, kenal kamu, ngejalin
+          hubungan sama kamu, berantem sama kamu, dan masi banyak lagi. Semoga
+          kamu bahagia dengan apapun pilihanmu. Aku bersyukur dan berterimakasih
+          atas hal-hal yang udah kita lewatin sampe sini. Semoga kamu lebih
+          bahagia kedepannya, Thank you too for being a part of my life🫶
 
           <br /><br />That's all from me for my beloved, i love you🫂
           <br /><br />With all my love, <br />
           Rendi
         </p>
       </div>
-      <button id="playButton">Play</button>
+      <button id="playButton">Klik kalo udah selese baca</button>
       <video id="video" controls>
-        <source src="yes.mp4" type="video/mp4" />
+        <source
+          src="https://github.com/iReen09/birthday/raw/main/us.mp4"
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
       </video>
     </div>
+
+    <footer>Copyright 💓 2024 Rendi Widya Anggita. All Love Reserved</footer>
 
     <!-- javascript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -278,7 +289,7 @@
             .removeClass("openedHer")
             .addClass("openHer");
           $(".container").stop().animate({ backgroundColor: "#f48fb1" }, 2000);
-          $("#playButton").show(); // Show the play button
+          $("#playButton").css("top", "50px").show(); // Show the play button above the message
           console.log("I Like You");
         } else {
           $(".message").removeClass("no-anim").addClass("closeNor");
